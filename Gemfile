@@ -57,3 +57,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 #control user
 gem 'devise'
+
+#make form easier 
+gem 'simple_form', '~> 5.1'
