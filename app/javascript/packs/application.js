@@ -10,6 +10,7 @@ import "channels"
 require("@popperjs/core")
 import "bootstrap"
 require("../stylesheets/application.scss")
+import "@fortawesome/fontawesome-free/css/all"
 
 Rails.start()
 Turbolinks.start()
