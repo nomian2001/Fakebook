@@ -20,7 +20,17 @@
 
 .friendship{
     height: 100vh;
+    a {
+        color: white;
+        text-decoration: none;
+    }
+
+    a:hover{
+        color: white;
+    }
     .profile{
+        position: relative;
+        width: 300px;
         .info-profile{
             .name-profile{
                 margin-bottom: 0;
@@ -32,10 +42,23 @@
             }
         }
         .follow-btn{
+            width: 50px;
+            height: 30px;
+            border-radius: 25px;
+            background-color: cadetblue;
+            color: white;
+            position: absolute;
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-left: 4rem;
+            right: 1rem;
+            top: 0.5rem;
+            font-size: 15px;
+            cursor: pointer;
+        }
+
+        .follow-btn:hover, .follow-btn:focus{
+            background-color: rgb(113, 201, 204);
         }
     }
 }
