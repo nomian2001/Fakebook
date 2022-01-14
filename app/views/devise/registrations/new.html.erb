@@ -1,29 +1,36 @@
-<h2>Sign up</h2>
+<div class="d-flex justify-content-center mt-5">
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: "sign-up-form d-flex flex-column align-items-center"}) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+    <h2 class="form-title">Sign up</h2>
+    <p>Create your account. It's free and only takes a minute</p>
+    <div class="field form-group">
+      <%= f.search_field :name, autofocus: true,wrapper: false, placeholder: "Name" %>
+    </div>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+    <div class="field form-group">
+      <%= f.search_field :username,require: true,wrapper: false, placeholder: "Username" %>
+    </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+    <div class="field form-group">
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email" %>
+    </div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
+    <div class="field form-group">
+      <%= f.password_field :password, autocomplete: "new-password",placeholder: "Password" %>
+    </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+    <div class="field form-group">
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Confirm Password" %>
+    </div>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
+    <div class="actions d-flex flex-row-reverse btn-form-group">
+      <%= f.submit "Sign up", class: "btn btn-success" %>
+    </div>
 
-<%= render "devise/shared/links" %>
+    <div class="alert-login">
+      Already have an account?<%= render "devise/shared/links" %>
+    </div>
+  <% end %>
+  
+  
+</div>
