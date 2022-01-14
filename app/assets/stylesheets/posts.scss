@@ -68,3 +68,22 @@
     padding: 1rem;
     
 }
+
+.profile{
+    width: 300px;
+
+    .info-profile{
+        .name-profile{
+            margin-bottom: 0;
+            font-weight: bold;
+        }
+        .email-profile{
+            margin-top: 1px;
+            font-size: 12px;
+        }
+    }
+
+    .stats{
+        font-size: 15px;
+    }
+}
