@@ -8,7 +8,12 @@
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse d-flex flex-row-reverse" id="navbarNav">
-        <%= link_to "Sign up", new_user_registration_path, class: "btn  ms-4 sign-up"%>
-        <%= link_to "Log in", new_user_session_path, class: "btn login"%>
+        <%if user_signed_in? %>
+            <%= link_to "Log out", destroy_user_session_path,method: :delete, class: "btn sign-up"%>
+            <%= link_to current_user.username, edit_user_registration_path, class: "btn  ms-4 login"%>
+        <% else%>
+            <%= link_to "Sign up", new_user_registration_path, class: "btn  ms-4 sign-up"%>
+            <%= link_to "Log in", new_user_session_path, class: "btn login"%>
+        <% end %>
     </div>
 </nav>
