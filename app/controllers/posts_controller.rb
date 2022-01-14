@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   def index
     @posts = current_user.posts.all.order("created_at DESC")
     @post = current_user.posts.build
-    @users = User.all
+    @users = User.all_except(current_user)
   end
 
   # GET /posts/1 or /posts/1.json
