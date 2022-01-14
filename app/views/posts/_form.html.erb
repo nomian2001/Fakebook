@@ -1,22 +1,24 @@
-<%= form_with(model: post) do |form| %>
-  <% if post.errors.any? %>
+<div class="card mt-4 create-post">
+<%= form_with(model: @post) do |form| %>
+  <% if @post.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
 
       <ul>
-        <% post.errors.each do |error| %>
+        <% @post.errors.each do |error| %>
           <li><%= error.full_message %></li>
         <% end %>
       </ul>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :content %>
-    <%= form.text_area :content %>
+  <div class="field d-flex flex-column">
+    <%= form.label :content, class: "card-header label mb-3 " %>
+    <%= form.text_area :content, class: "content-post" %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="actions d-flex flex-row-reverse mt-2">
+    <%= form.submit "post", class: "btn btn-primary" %>
   </div>
 <% end %>
+</div>

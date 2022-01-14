@@ -60,3 +60,5 @@ gem 'devise'
 
 #make form easier 
 gem 'simple_form', '~> 5.1'
+
+
