@@ -1,30 +1,4 @@
 <div class="feed">  
     <%= render "form" %>
-    <% @posts.each do |post| %>
-        <div class="mt-5">
-            <div class="card post">
-                <div class="card-header d-flex">
-                    <div class="info-account">
-                        <h5 class="user-name"><%= current_user.username %></h5>
-                        <p class="date-post">date</p>
-                    </div>
-                    <nav class="nav-post container d-flex flex-row-reverse">
-                        <div class="group-icon">
-                            <%= link_to edit_post_path(post), class: "icon-item" do %>
-                                <i class="fa fa-edit" aria-hidden="true"></i>
-                            <% end %>
-                            <%= link_to post,method: :delete, data: {confirm: "Are you sure you want to delete this post?"} , class: "icon-item" do %>
-                                <i class="fa fa-trash-alt" aria-hidden="true"></i>
-                            <% end %>
-                        </div>
-                    </nav>
-                </div>
-                <div class="card-body">
-                    <p class="card-text"> <%= post.content  %></p>
-                </div>
-                <div>
-                </div>
-            </div>
-        </div>
-    <% end %>
+    <%= render "post"%>
 </div>

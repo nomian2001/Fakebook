@@ -25,6 +25,45 @@
     background-color: #00B4F5;
     color: whitesmoke;
   }
+
+
+  .btn-profile{
+    border-radius: 20px;
+    width: 150px;
+    color: white;
+    background-color: #00A5E0;
+  }
+
+  .btn-profile:hover{
+    background-color: #04bcff;
+    color: white;
+  }
+
+  .dropdown{
+    position: relative !important;
+    display: inline-block !important;
+    
+  }
+  
+  .dropdown-menu a{
+    color: black;
+    padding: 5px 0 1px 5px;
+    display: block;
+  }
+  
+  .dropdown-menu a:hover{
+    background-color: #77B6EA;
+    color: black;
+  }
+  
+  .dropdown:hover .dropdown-menu{
+    display: block;
+  }
+
+  .logout{
+    border-top: 1px solid rgb(173, 171, 171);
+  }
+
 }
 
 .sign-up-form{
@@ -127,3 +166,13 @@
     display: none;
   }
 }
+
+.body{
+  background-color: #F9F5E3;
+  height: 100vh;
+}
+
+
+
+
+
