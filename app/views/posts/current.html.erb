@@ -1,13 +1,14 @@
 <section class="container-fluid">
   <div class="row"> 
-    <div class="col">
+    <div class="col-md-auto">
+      <%= render "profile" %>
+      <%= render "friendships/listfriends"%>
     </div>
-    <div class="col-6">
+    <div class="col">
       <%= render "feed"%>
     </div>
-    <div class="col">
+    <div class="col-md-auto">
       <%= render "friendships/strangers" %>
     </div>
   </div>
 </section>
-

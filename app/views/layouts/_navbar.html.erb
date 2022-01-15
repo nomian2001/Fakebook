@@ -12,7 +12,9 @@
             <div class="dropdown pe-5">
                 <div class="btn btn-profile"><%= current_user.username%></div>
                 <div class="dropdown-menu">
-                    <a href="#"><i class="fas fa-home me-2 text-center"></i>My Page </a>
+                    <%= link_to user_page_path(current_user) do %>
+                        <i class="fas fa-home me-2 text-center"></i>My Page
+                    <%end%>
                     <%= link_to edit_user_registration_path do %>
                         <i class="far fa-id-badge me-2 text-center mb-2"></i> My Profile
                     <%end%>

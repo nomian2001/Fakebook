@@ -12,6 +12,14 @@ class PostsController < ApplicationController
   def show
   end
 
+  def current
+    @posts = current_user.posts.all.order("created_at DESC")
+    @post = current_user.posts.build
+    @users = User.all_except(current_user)
+    
+  end
+
+
   # GET /posts/new
   def new
     @post = current_user.posts.build

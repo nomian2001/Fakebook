@@ -1,3 +1,79 @@
 // Place all the styles related to the Friendships controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.friendship{
+    width: 300px;
+    height: 100vh;
+    a {
+        color: white;
+        text-decoration: none;
+    }
+
+    a:hover{
+        color: white;
+    }
+    .profile{
+        position: relative;
+        width: 280px;
+        cursor: pointer;
+        .info-profile{
+            .name-profile{
+                margin-bottom: 0;
+                font-weight: bold;
+            }
+            .email-profile{
+                margin-top: 1px;
+                font-size: 12px;
+            }
+        }
+        .follow-btn{
+            width: 50px;
+            height: 30px;
+            border-radius: 25px;
+            background-color: cadetblue;
+            color: white;
+            text-align: center;
+            font-size: 15px;
+            cursor: pointer;
+        }
+
+        .follow-btn:hover, .follow-btn:focus{
+            background-color: rgb(113, 201, 204);
+        }
+    }
+
+    .profile:hover{
+        background-color: rgb(202, 230, 230);
+    }
+
+    .info-profile{
+        width: 200px;
+    }
+}
+
+.listfriends{
+    width: 300px;
+    .profile{
+        width: 280px;
+        cursor: pointer;
+    }
+
+    .profile:hover{
+        background-color: rgb(202, 230, 230);
+    }
+
+    .remove-btn{
+        width: 70px;
+        height: 30px;
+        border-radius: 25px;
+        background-color: cadetblue;
+        color: white;
+        text-align: center;
+        font-size: 15px;
+        cursor: pointer;
+    }
+
+    .remove-btn:hover, .remove-btn:focus{
+        background-color: rgb(113, 201, 204);
+    }
+}
