@@ -3,8 +3,8 @@
             <div class="card post">
                 <div class="card-header d-flex">
                     <div class="info-account">
-                        <h5 class="user-name"><%= current_user.username %></h5>
-                        <p class="date-post">date</p>
+                        <h5 class="user-name"><%= post.user.username %></h5>
+                        <p class="date-post"><%= post.created_at.to_date%></p>
                     </div>
                     <nav class="nav-post container d-flex flex-row-reverse">
                         <div class="group-icon">

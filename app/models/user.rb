@@ -11,5 +11,5 @@ class User < ApplicationRecord
   has_many :inverse_friends, through:  :inverse_friendships, source: :user
 
   scope :all_except, ->(user) { where.not(id: (user.friends + [user]).map(&:id))}
-
+  
 end
