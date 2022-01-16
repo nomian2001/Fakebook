@@ -3,23 +3,11 @@ class PostsController < ApplicationController
   before_action :authenticate_user!
   # GET /posts or /posts.json
   def index
-    ids = current_user.friends.pluck(:id) << current_user.id
-    @posts = Post.where(user_id: ids).order("created_at DESC")
-    @post = current_user.posts.build
-    @users = User.all_except(current_user)
   end
 
   # GET /posts/1 or /posts/1.json
   def show
   end
-
-  def current
-    @posts = current_user.posts.all.order("created_at DESC")
-    @post = current_user.posts.build
-    @users = User.all_except(current_user)
-    
-  end
-
 
   # GET /posts/new
   def new
