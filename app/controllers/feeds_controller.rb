@@ -6,7 +6,6 @@ class FeedsController < ApplicationController
         @posts = Post.where(user_id: ids).order("created_at DESC")
         @post = current_user.posts.build
         @users = User.all_except(current_user)
-        @comment = @post.comments.build
         @comments = @post.comments.all.order("created_at DESC")
     end
 
@@ -14,7 +13,7 @@ class FeedsController < ApplicationController
         @posts = current_user.posts.all.order("created_at DESC")
         @post = current_user.posts.build
         @users = User.all_except(current_user)
-        @comment = @post.comments.build
+
         @comments = @post.comments.all.order("created_at DESC")
     end
 

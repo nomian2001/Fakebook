@@ -1,3 +1,14 @@
 // Place all the styles related to the Feeds controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.user-profile{
+    border-radius: 25px !important;
+    border-left: 2px solid black !important;
+    border-right: 2px solid black !important;
+    border-bottom: 2px solid black !important;
+    .card-header{
+        border-radius: 25px !important;
+        background-color: #00B4F5;
+        border: 2px solid #03a0da ;
+    }
+}

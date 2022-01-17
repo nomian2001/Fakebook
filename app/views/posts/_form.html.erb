@@ -1,5 +1,5 @@
 <div class="card mt-4 create-post">
-<%= form_with(model: @post) do |form| %>
+<%= form_with(model: @post, class: "bg-create-post") do |form| %>
   <% if @post.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
@@ -12,13 +12,25 @@
     </div>
   <% end %>
 
-  <div class="field d-flex flex-column">
-    <%= form.label :content, class: "card-header label mb-3 " %>
-    <%= form.text_area :content, class: "content-post" %>
+  <div class="card-header">
+    <div class="profile-container">
+      <div class="profile d-flex">
+        <div class="d-flex info-profile">
+          <div class="d-flex justify-content-center align-items-center">
+            <%= image_tag "user.png",width:40,height:40 %>
+          </div>
+          <div class="d-flex flex-column ms-3 justify-content-center">
+            <p class="name-profile"><%= current_user.username %> </p>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-
+  <div class="field d-flex">
+    <%= form.text_area :content, class: "card-body content-post", placeholder: "Tell something?" %>
+  </div>
   <div class="actions d-flex flex-row-reverse mt-2">
-    <%= form.submit "post", class: "btn btn-primary" %>
+    <%= form.submit "Post", class: "btn btn-primary mb-2 me-5 submit-post" %>
   </div>
 <% end %>
 </div>

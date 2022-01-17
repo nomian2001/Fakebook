@@ -4,12 +4,29 @@
 .feed{
     .post{
         border-radius: 20px 20px 0px 0px;
+        .group-like-comment{
+            margin: 1rem 1rem 0 1rem;
+            height: 40px;
+            border-top: 1px solid black;
+            border-bottom: 1px solid black;
+        }
+        .group-actions{
+            width: 250px;
+            font-size: 1.25em;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .group-actions:hover, .group-actions:focus{
+            background-color: cadetblue;
+            color: white;
+        }
     }
 
     .card-header{
         .info-account{
             height: 40px;
-            width: 150px;
+            width: 300px;
             .date-post{
                 line-height: 0.5;
                 font-size: 12px;
@@ -20,14 +37,41 @@
 
 
 .create-post{
-    border-radius: 15px;
-    padding: 1rem;
-    
+    .bg-create-post{
+        border-radius: 25px ;
+
+    }
+    border-radius: 25px !important;
+    .card-body{
+        margin-top: 1rem;
+        padding: 1rem 1rem 0 1rem;
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+    .card-header{
+        border-radius: 25px;
+        background-color: #F1AF00;
+    }
+    .content-post{
+        border-radius: 15px;
+        outline: none;
+        border: none;
+        
+        background-color: transparent;
+    }
+
+   
+    .content-post:hover, .content-post:focus{
+        border: 2px solid midnightblue;
+    }
+
+    .submit-post{
+        border-radius: 25px;
+    }
 }
 
 .profile{
     width: 300px;
-
     .info-profile{
         .name-profile{
             margin-bottom: 0;

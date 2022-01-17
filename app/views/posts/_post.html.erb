@@ -1,31 +1,40 @@
-<% @posts.each do |post| %>
-    <div class="mt-2 pt-2 pb-5 ">
-        <div class="card post">
-            <div class="card-header d-flex">
-                <div class="info-account">
-                    <h5 class="user-name"><%= post.user.username %></h5>
-                    <p class="date-post"><%= post.created_at.to_date%></p>
-                </div>
-                <nav class="nav-post container d-flex flex-row-reverse">
-                    <div class="group-icon">
-                        <%= link_to edit_post_path(post), class: "icon-item" do %>
-                            <i class="fa fa-edit" aria-hidden="true"></i>
-                        <% end %>
-                        <%= link_to post,method: :delete, data: {confirm: "Are you sure you want to delete this post?"} , class: "icon-item" do %>
-                            <i class="fa fa-trash-alt" aria-hidden="true"></i>
-                        <% end %>
-                    </div>
-                </nav>
+<div class="card post">
+    <div class="card-header d-flex">
+        <div class="info-account d-flex">
+            <div class="d-flex justify-content-center align-items-center">
+                <%= image_tag "user.png",width:30,height:30 %>
             </div>
-            <div class="card-body">
-                <p class="card-text"> <%= post.content  %></p>
-            </div>
-            <div>
-                <%= render post.comments %>
-            </div>
-            <div>
-                <%= render "comments/form", post: post %>
+            <div class="d-flex flex-column ms-3">
+                <h5 class="user-name"><%= post.user.username %></h5>
+                <p class="date-post"><%= post.created_at.to_date%></p>
             </div>
         </div>
+        <nav class="nav-post container d-flex flex-row-reverse">
+            <div class="group-icon">
+                <%= link_to edit_post_path(post), class: "icon-item" do %>
+                    <i class="fa fa-edit" aria-hidden="true"></i>
+                <% end %>
+                <%= link_to post,method: :delete, data: {confirm: "Are you sure you want to delete this post?"} , class: "icon-item" do %>
+                    <i class="fa fa-trash-alt" aria-hidden="true"></i>
+                <% end %>
+            </div>
+        </nav>
     </div>
-<% end %>
+    <div class="card-body">
+        <p class="card-text"> <%= post.content  %></p>
+    </div>
+    <div class="group-like-comment d-flex justify-content-around align-items-center">
+        <div class="group-actions">
+            <i class="far fa-thumbs-up me-2"></i>Like
+        </div>
+        <div class="group-actions">
+            <i class="far fa-comment-alt me-2"></i>Comment
+        </div>
+    </div>
+    <div class="mt-2">
+        <%= render post.comments %>
+    </div>
+    <div>
+        <%= render "comments/form", post: post %>
+    </div>
+</div>

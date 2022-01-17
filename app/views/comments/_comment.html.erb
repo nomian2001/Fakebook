@@ -1,14 +1,18 @@
-<div class="box">
-  <article class="media">
-    <div class="media-content">
-      <div class="content">
+<div class="show-comments mt-2 ms-2 me-2">
+    <div class="d-flex">
+      <div class="content-comment">
         <p>
-          <strong><%= comment.user.username %></strong>
+          <strong><%= comment.user.username %>:</strong>
           <%= comment.content %>
         </p>
       </div>
+      <div class="d-flex flex-row-reverse">
+      <% if comment.user_id == current_user.id %>
+        <%= link_to [comment.post, comment],
+                    method: :delete, class: "button is-danger", data: { confirm: 'Are you sure?' } do %>
+          <i class="fa fa-trash-alt" aria-hidden="true"></i>
+        <%end %>
+      <%end %>
+      </div>
     </div>
-     <%= link_to 'Delete', [comment.post, comment],
-                  method: :delete, class: "button is-danger", data: { confirm: 'Are you sure?' } %>
-    </article>
 </div>
