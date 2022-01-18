@@ -14,13 +14,17 @@
         text-align: justify;
     }
 
+    .comment-username{
+        text-align: left;
+    }
+
 }
 
 .comment_form{
     margin-top: 1rem;
     margin-left: 1rem;
     margin-right: 1rem;
-    display: none;
+    
     .reply{
         border-radius: 15px;
         text-align: center;

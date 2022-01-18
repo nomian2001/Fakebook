@@ -14,7 +14,11 @@ require("../stylesheets/application.scss")
 import "@fortawesome/fontawesome-free/css/all"
 
 $(function(){
-    
+    $("textarea").on('input',function(e) {
+        while($(this).outerHeight() < this.scrollHeight + parseFloat($(this).css("borderTopWidth")) + parseFloat($(this).css("borderBottomWidth"))) {
+            $(this).height($(this).height()+1);
+        };
+    });
 })
 
 
