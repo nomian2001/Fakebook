@@ -5,18 +5,18 @@
         </div>
         <div class="card-body">
             <div class="profile-container">
-                <% @users.each do |user|  %>
+                <% strangers.each do |stranger|  %>
                     <div class="profile d-flex align-items-center">
                         <div class="d-flex info-profile">
                             <div class="d-flex justify-content-center align-items-center">
                                 <%= image_tag "user.png",width:40,height:40 %>
                             </div>
                             <div class="d-flex flex-column ms-3 justify-content-center">
-                            <p class="name-profile"><%= user.username %> </p>
-                            <p class="email-profile"><%= user.email %></p>
+                            <p class="name-profile"><%= stranger.username %> </p>
+                            <p class="email-profile"><%= stranger.email %></p>
                             </div>
                         </div>
-                        <div class="follow-btn d-flex flex-column justify-content-center ms-3"><%= link_to "Add", friendships_path(:friend_id => user), :method => :post %></div>
+                        <div class="follow-btn d-flex flex-column justify-content-center ms-3"><%= link_to "Add", friendships_path(:friend_id => stranger), :method => :post %></div>
                     </div>
                 <%end %>
             </div>

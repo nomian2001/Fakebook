@@ -1,7 +1,7 @@
 <div class="profile pt-4">
     <div class="card user-profile">
         <div class="card-header">
-            <h5>My Profile</h5>
+            <h5>Profile</h5>
         </div>
         <div class="card-body">
             <div class="profile-container">
@@ -11,21 +11,26 @@
                             <%= image_tag "user.png",width:40,height:40 %>
                         </div>
                         <div class="d-flex flex-column ms-3 justify-content-center">
-                            <p class="name-profile"><%= current_user.username %> </p>
-                            <p class="email-profile"><%= current_user.email %></p>
+                            <p class="name-profile"><%= user.username %> </p>
+                            <p class="email-profile"><%= user.email %></p>
                         </div>
+                        <% if !current_user.friends.include?(user) && user != current_user %>
+                            <div class="follow-btn d-flex flex-column justify-content-center ms-3">
+                                <%= link_to "Add", friendships_path(:friend_id => user), :method => :post %>
+                            </div>
+                        <%end %>
                     </div>
                 </div>
             </div>
             <div class="d-flex justify-content-between align-items-center mt-2 px-4">
                 <div class="stats text-center">
-                    <h6 class="mb-0">Friends</h6> <span><%= current_user.friends.count %></span>
+                    <h6 class="mb-0">Friends</h6> <span><%= user.friends.count %></span>
                 </div>
                 <div class="stats text-center">
-                    <h6 class="mb-0">Posts</h6> <span><%= current_user.posts.count %> </span>
+                    <h6 class="mb-0">Posts</h6> <span><%= user.posts.count %> </span>
                 </div>
                 <div class="stats text-center">
-                    <h6 class="mb-0">Likes</h6> <span><%= get_total_likes(current_user.posts.all) %></span>
+                    <h6 class="mb-0">Likes</h6> <span><%= get_total_likes(user.posts.all) %></span>
                 </div>
             </div>
         </div>

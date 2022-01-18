@@ -3,10 +3,10 @@
     <div class="col">
     </div>
     <div class="col-6">
-      <%= render "shared/feed"%>
+      <%= render "shared/feed" %>
     </div>
     <div class="col">
-      <%= render "friendships/strangers" %>
+      <%= render "friendships/strangers",strangers: @strangers %>
     </div>
   </div>
 </section>

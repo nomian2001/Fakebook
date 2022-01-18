@@ -5,7 +5,7 @@
         </div>
         <div class="card-body">
             <div class="profile-container">
-                <% current_user.friendships.each do |friendship|  %>
+                <% user.friendships.each do |friendship|  %>
                     <div class="profile d-flex align-items-center">
                         <div class="d-flex info-profile">
                             <div class="d-flex justify-content-center align-items-center">
@@ -16,7 +16,9 @@
                             <p class="email-profile"><%= friendship.friend.email %></p>
                             </div>
                         </div>
+                        <% if user.id == current_user.id%>
                         <div class="remove-btn d-flex flex-column justify-content-center ms-2"><%= link_to "Remove", friendship, method: :delete %></div>
+                        <% end %>
                     </div>
                 <%end %>
             </div>

@@ -23,7 +23,7 @@ $(function(){
     $(".bg-create-post").off('submit').on('submit',function(e){
         e.stopImmediatePropagation();
         e.preventDefault();
-        let post = $('.post_content').val();
+        let post = $('.content-post').val();
         let link = $(this).attr('action');
         $.ajax({
             url: link,
@@ -43,29 +43,7 @@ $(function(){
         })
     });
 
-    $('.comment_form').off('submit').on('submit',function(e){
-        e.stopImmediatePropagation();
-        e.preventDefault();
-        let contentComment = $('.comment').val();
-        let link = $(this).attr('action');
-        $.ajax({
-            url: link,
-            type: "POST",
-            dataType: 'json',
-            data: {
-                comment: {
-                    content: contentComment
-                }
-            },
-            success: function(){
-                alert("created comment!")
-            },
-            error: function(){
-                alert("comment unsuccess!")
-            }
-        });
-       
-    });
+    
 
    
 })
