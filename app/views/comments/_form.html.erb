@@ -1,6 +1,6 @@
-<%= form_with(model: [post,Comment.new],class: "comment_form") do |form| %>
+<%= form_with(model: [post,Comment.new],class: "comment_form",local: false) do |form| %>
     <div class="field d-flex flex-column">
-        <%= form.text_area :content, class: "card-body content-comment", placeholder: "Comment something?" %>
+        <%= form.text_area :content, class: "card-body content-comment comment", placeholder: "Comment something?" %>
     </div>
 
     <%= form.hidden_field :post_id, value: post.id %>
