@@ -1,12 +1,12 @@
-<%= form_with(model: [post,Comment.new],id: "comment_form") do |form| %>
+<%= form_with(model: [post,Comment.new],class: "comment_form") do |form| %>
     <div class="field d-flex flex-column">
-        <%= form.text_area :content, class: "card-body content-post", placeholder: "Comment something?" %>
+        <%= form.text_area :content, class: "card-body content-comment", placeholder: "Comment something?" %>
     </div>
 
     <%= form.hidden_field :post_id, value: post.id %>
     
     <div class="actions d-flex flex-row-reverse mt-2">
-        <%= form.submit "Reply", class: "btn btn-primary" %>
+        <%= form.submit "Reply", class: "btn btn-primary mb-2 reply" %>
     </div>
 
 <% end %>

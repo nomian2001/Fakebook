@@ -1,19 +1,20 @@
-
 <div class="show-comments mt-2 ms-2 me-2">
-    <div class="d-flex">
-      <div class="content-comment">
-        <p>
+    <div class="d-flex align-items-center">
+      <div class="content-comment d-flex justify-content-around">
+        <p class="comment-username">
           <strong><%= comment.user.username %>:</strong>
+        </p>
+        <p class="ms-2 text-justify content">
           <%= comment.content %>
         </p>
       </div>
-      <div class="d-flex flex-row-reverse">
-      <% if comment.user_id == current_user.id %>
-        <%= link_to [comment.post, comment],
-                    method: :delete, class: "button is-danger", data: { confirm: 'Are you sure?' } do %>
-          <i class="fa fa-trash-alt" aria-hidden="true"></i>
+      <div class="d-flex flex-row-reverse ms-3">
+        <% if comment.user_id == current_user.id %>
+          <%= link_to [comment.post, comment],
+                      method: :delete, class: "button is-danger", data: { confirm: 'Are you sure?' } do %>
+            <i class="fa fa-trash-alt" aria-hidden="true"></i>
+          <%end %>
         <%end %>
-      <%end %>
       </div>
     </div>
 </div>

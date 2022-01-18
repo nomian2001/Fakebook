@@ -3,18 +3,42 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 .show-comments{
     padding-left: 1rem;
-    background-color: rgb(161, 159, 155);
     border-radius: 25px;
-
+    padding-top: 1rem;
     .content-comment{
-        p{
-            width: 500px;
-        }
+       width: 500px;
     }
+
+    .content{
+        width: 400px;
+        text-align: justify;
+    }
+
 }
 
-#comment_form{
+.comment_form{
     margin-top: 1rem;
     margin-left: 1rem;
     margin-right: 1rem;
+    display: none;
+    .reply{
+        border-radius: 15px;
+        text-align: center;
+    }
+
+    .content-comment{
+        border-radius: 25px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .show-comments{
+        .content-comment{
+            width:350px;
+        }
+
+        .content{
+            width: 250px;
+        }
+    }
 }

@@ -25,7 +25,7 @@
                     <h6 class="mb-0">Posts</h6> <span><%= current_user.posts.count %> </span>
                 </div>
                 <div class="stats text-center">
-                    <h6 class="mb-0">Likes</h6> <span><%= current_user.likes.count %></span>
+                    <h6 class="mb-0">Likes</h6> <span><%= get_total_likes(current_user.posts.all) %></span>
                 </div>
             </div>
         </div>

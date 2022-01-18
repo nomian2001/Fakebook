@@ -13,7 +13,9 @@ import "bootstrap"
 require("../stylesheets/application.scss")
 import "@fortawesome/fontawesome-free/css/all"
 
-
+$(function(){
+    
+})
 
 
 Rails.start()

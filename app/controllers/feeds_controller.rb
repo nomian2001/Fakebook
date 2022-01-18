@@ -7,6 +7,7 @@ class FeedsController < ApplicationController
         @post = current_user.posts.build
         @users = User.all_except(current_user)
         @comments = @post.comments.all.order("created_at DESC")
+        
     end
 
     def current

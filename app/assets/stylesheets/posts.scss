@@ -4,8 +4,9 @@
 .feed{
     .post{
         border-radius: 20px 20px 0px 0px;
+        
         .group-like-comment{
-            margin: 1rem 1rem 0 1rem;
+            margin: 0rem 1rem 0 1rem;
             height: 40px;
             border-top: 1px solid black;
             border-bottom: 1px solid black;
@@ -15,11 +16,29 @@
             font-size: 1.25em;
             text-align: center;
             cursor: pointer;
+            a{
+                color: black;
+                text-decoration: none;
+            }
+
         }
 
         .group-actions:hover, .group-actions:focus{
-            background-color: cadetblue;
+            background-color: #85C7F2;
             color: white;
+            a{
+                color: white;
+            }
+        }
+
+        .liked{
+            color: #116BA6 !important;
+            font-weight: bold;
+        }
+
+        .card-header{
+            background-color: #85F7FF;
+            border-radius: 20px 20px 0px 0px !important;
         }
     }
 
