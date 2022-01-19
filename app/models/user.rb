@@ -13,5 +13,10 @@ class User < ApplicationRecord
   has_many :inverse_friends, through:  :inverse_friendships, source: :user
 
   scope :all_except, ->(user) { where.not(id: (user.friends + [user]).map(&:id))}
-  
+  validates_presence_of     :email 
+  validates_presence_of     :username 
+  validates_uniqueness_of   :username  
+  validates_presence_of     :password, if: :password_required? 
+  validates_confirmation_of :password, if: :password_required? 
+  validates_length_of       :password, within: password_length, allow_blank: true
 end

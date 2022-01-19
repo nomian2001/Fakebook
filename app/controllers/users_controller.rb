@@ -4,6 +4,9 @@ class UsersController < ApplicationController
     @users = User.all
     @posts = @user.posts.all.order("created_at DESC")
     @post = current_user.posts.build
+    if !@post.present?
+      @posts.insert(@post)
+    end
     @strangers = User.all_except(@user)
     @comments = @post.comments.all.order("created_at DESC")
   end

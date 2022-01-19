@@ -1,17 +1,5 @@
 <div class="card mt-4 create-post">
 <%= form_with(model: @post, class: "bg-create-post",local: false) do |form| %>
-  <% if @post.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
-
-      <ul>
-        <% @post.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
   <div class="card-header">
     <div class="profile-container">
       <div class="profile d-flex">

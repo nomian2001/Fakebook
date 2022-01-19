@@ -70,13 +70,18 @@
   background-color: #006AA3;
   width: 450px;
   border-radius: 25px;
-  color: white;
-  height: 520px;
+
   margin-bottom: 20px;
+
   .form-title{
     margin-top: 10px;
     width: 350px; 
     margin-bottom: 15px;
+    color: white;
+  }
+
+  .alert-login{
+    color: white;
   }
 
   h2{
@@ -196,4 +201,15 @@
 
 .position-toast{
   left: 50% !important;
+}
+
+.error-message{
+  margin-top: 1rem;
+  width: 400px;
+  li{
+      color: rgb(218, 80, 80);
+      font-weight: bold;
+  }
+  
+  
 }

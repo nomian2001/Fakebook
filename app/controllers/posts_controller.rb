@@ -20,7 +20,7 @@ class PostsController < ApplicationController
 
   # POST /posts or /posts.json
   def create
-    @post = current_user.posts.build(post_params)
+    @post = current_user.posts.create!(post_params)
 
     respond_to do |format|
       if @post.save
@@ -28,6 +28,7 @@ class PostsController < ApplicationController
         format.html { redirect_back(fallback_location: root_path)}
         format.json { render :show, status: :created, location: @post }
       else
+
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @post.errors, status: :unprocessable_entity }
       end
@@ -51,7 +52,7 @@ class PostsController < ApplicationController
   # DELETE /posts/1 or /posts/1.json
   def destroy
     @post.destroy
-
+    
     respond_to do |format|
       flash[:notice] = "Deleted comment"
       format.html { redirect_back(fallback_location: root_path) }
