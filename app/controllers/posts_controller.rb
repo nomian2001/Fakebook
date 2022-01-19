@@ -24,7 +24,8 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
-        format.html { redirect_back(fallback_location: root_path) }
+        flash[:notice] = "Created post"
+        format.html { redirect_back(fallback_location: root_path)}
         format.json { render :show, status: :created, location: @post }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -37,6 +38,7 @@ class PostsController < ApplicationController
   def update
     respond_to do |format|
       if @post.update(post_params)
+        flash[:notice] = "Edited post successful"
         format.html { render root_path }
         format.json { render :show, status: :ok, location: @post }
       else
@@ -51,6 +53,7 @@ class PostsController < ApplicationController
     @post.destroy
 
     respond_to do |format|
+      flash[:notice] = "Deleted comment"
       format.html { redirect_back(fallback_location: root_path) }
       format.json { head :no_content }
     end

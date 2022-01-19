@@ -13,10 +13,9 @@
 
   <body>
     <%= render "layouts/navbar" %>
-
+    <%= toastr_flash %>
     <div class="container-fluid body">
       <%= yield %>
     </div>
-    
   </body>
 </html>

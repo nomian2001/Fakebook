@@ -13,6 +13,10 @@ import "bootstrap"
 require("../stylesheets/application.scss")
 import "@fortawesome/fontawesome-free/css/all"
 
+global.toastr = require("toastr")
+
+
+
 $(function(){
     $("textarea").on('input',function(e) {
         while($(this).outerHeight() < this.scrollHeight + parseFloat($(this).css("borderTopWidth")) + parseFloat($(this).css("borderBottomWidth"))) {
@@ -20,28 +24,6 @@ $(function(){
         };
     });
 
-    $(".bg-create-post").off('submit').on('submit',function(e){
-        e.stopImmediatePropagation();
-        e.preventDefault();
-        let post = $('.content-post').val();
-        let link = $(this).attr('action');
-        $.ajax({
-            url: link,
-            type: "POST",
-            dataType: 'json',
-            data: {
-                    post: {
-                        content: post
-                    }
-            },
-            success: function() {
-                alert("You created post!");
-            },
-            error: function(){
-                alert("not success!")
-            }
-        })
-    });
 
     
 

@@ -6,6 +6,7 @@ class CommentsController < ApplicationController
         @comment.user_id = current_user.id
         @comment.post_id = @post.id
         if @comment.save
+            flash[:notice] = "Created comment." 
             redirect_back(fallback_location: root_path)
         end
     end
@@ -14,6 +15,7 @@ class CommentsController < ApplicationController
         @post = Post.find(params[:post_id])
         @comment = @post.comments.find(params[:id])
         @comment.destroy
+        flash[:success] = "Deleted comment." 
         redirect_back(fallback_location: root_path)
     end
   

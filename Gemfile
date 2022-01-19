@@ -58,6 +58,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 #control user
 gem 'devise'
 
-
-
+#make notify cleaner
+gem 'toastr-rails'
 
