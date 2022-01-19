@@ -24,7 +24,13 @@ $(function(){
         };
     });
 
-
+    $(".comment-btn").on('click',function() {
+        let id = $(this).parent().parent().attr('id')
+        id = id.replace('post_','');
+        $("#comments_"+id).toggle();
+        let test = $("#comments_" + id)
+        console.log(test)
+    })
     
 
    

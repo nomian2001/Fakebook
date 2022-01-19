@@ -1,4 +1,4 @@
-<div class="card post">
+<div class="card post" id="post_<%= post.id %>">
     <div class="card-header d-flex">
         <div class="info-account d-flex">
             <div class="d-flex justify-content-center align-items-center">
@@ -36,7 +36,7 @@
             <%= post.comments.count %>
         </p>
     </div>
-    <div class="group-like-comment d-flex justify-content-around align-items-center">
+    <div class="group-like-comment d-flex justify-content-around align-items-center mb-2">
         <div class="group-actions">
             <% check_like = post.likes.find{|like| like.user_id == current_user.id} %>
             <% if check_like %>
@@ -53,9 +53,11 @@
             <i class="far fa-comment-alt me-2"></i>Comment
         </div>
     </div>
-    <div class="mt-2">
-        <%= render post.comments %>
-    </div>
+    <% if post.comments.count != 0%>
+        <div class="mt-2">
+            <%= render post.comments %>
+        </div>
+    <% end %>
     <div>
         <%= render "comments/form", post: post %>
     </div>
