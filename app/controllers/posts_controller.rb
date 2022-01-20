@@ -41,7 +41,6 @@ class PostsController < ApplicationController
       if @post.update(post_params)
         format.html { render root_path }
         format.json { render :show, status: :ok, location: @post }
-        format.js {flash.now[:notice] = "Edited post successful"}
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @post.errors, status: :unprocessable_entity }

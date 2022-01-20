@@ -1,5 +1,5 @@
-$('#like_<%= @post.id %>').removeClass("far fa-thumbs-up").addClass("fas fa-thumbs-up").parent().addClass("liked")
+$('#icon_liked_<%= @post.id %>').removeClass("far fa-thumbs-up").addClass("fas fa-thumbs-up").parent().addClass("liked")
 <% check_like = @post.likes.find{|like| like.user_id == current_user.id} %>
-$('#not_liked_<%= @post.id %>').attr("data-method","delete").attr("href","<%= post_like_path(@post,check_like) %>")
+$('#liked_<%= @post.id %>').attr("data-method","delete").attr("href","<%= post_like_path(@post,check_like) %>")
 $('#likes_<%= @post.id %>').html("<%= j render "likes/likes", post: @post%>")
 $('body').prepend("<%= toastr_flash %>")
