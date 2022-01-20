@@ -37,7 +37,7 @@
                 <%= post.comments.count %>
             </p>
         </div>
-        <div class="group-like-comment d-flex justify-content-around align-items-center mb-2">
+        <div class="group-like-comment d-flex justify-content-around align-items-center mb-2" id="group-like-comment-<%= post.id %>">
             <div class="group-actions">
                 <% check_like = post.likes.find{|like| like.user_id == current_user.id} %>
                     <% if check_like %>
@@ -55,11 +55,11 @@
                 <i class="far fa-comment-alt me-2"></i>Comment
             </div>
         </div>
-        <% if post.comments.count != 0%>
-            <div class="mt-2" id="group_comment_<%=post.id%>">
-                <%= render post.comments, post: post %>
-            </div>
-        <% end %>
+        <div class="mt-2" id="group_comment_<%=post.id%>">
+            <% if post.comments.count != 0%>
+                    <%= render post.comments, post: post %>
+            <% end %>
+        </div>
         <div>
             <%= render "comments/form", post: post %>
         </div>
