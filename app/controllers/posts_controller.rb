@@ -26,7 +26,7 @@ class PostsController < ApplicationController
       if @post.save
         flash[:notice] = "Created post"
         format.html { redirect_back(fallback_location: root_path)}
-        format.json { render :show, status: :created, location: @post }
+        format.js {flash.now[:notice] = "Created Post"}
       else
 
         format.html { render :new, status: :unprocessable_entity }
@@ -39,9 +39,9 @@ class PostsController < ApplicationController
   def update
     respond_to do |format|
       if @post.update(post_params)
-        flash[:notice] = "Edited post successful"
         format.html { render root_path }
         format.json { render :show, status: :ok, location: @post }
+        format.js {flash.now[:notice] = "Edited post successful"}
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @post.errors, status: :unprocessable_entity }
@@ -52,11 +52,9 @@ class PostsController < ApplicationController
   # DELETE /posts/1 or /posts/1.json
   def destroy
     @post.destroy
-    
     respond_to do |format|
-      flash[:notice] = "Deleted comment"
       format.html { redirect_back(fallback_location: root_path) }
-      format.json { head :no_content }
+      format.js {flash.now[:notice] = "Deleted post"}
     end
   end
 

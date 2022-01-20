@@ -1,0 +1,3 @@
+$('.group-posts').prepend("<%= j render "posts/post", post: @post %>")
+$(".content-post").val("")
+$('body').prepend("<%= toastr_flash %>")

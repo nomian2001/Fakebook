@@ -1,10 +1,10 @@
 <%= form_with(model: [post,Comment.new],class: "comment_form",id: "comments_#{post.id}",local: false) do |form| %>
     <div class="field d-flex flex-column">
-        <%= form.text_area :content, class: "card-body content-comment comment", placeholder: "Comment something?" %>
+        <%= form.text_area :content, class: "card-body content-comment",id: "comment-#{post.id}", placeholder: "Comment something?" %>
     </div>
 
     <%= form.hidden_field :post_id, value: post.id %>
-    
+
     <div class="actions d-flex flex-row-reverse mt-2">
         <%= form.submit "Reply", class: "btn btn-primary mb-2 reply" %>
     </div>

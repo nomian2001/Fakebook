@@ -3,7 +3,7 @@
     <div class="col">
     </div>
     <div class="col-6">
-      <%= render "shared/feed" %>
+      <%= render "shared/feed",user: current_user %>
     </div>
     <div class="col">
       <%= render "friendships/strangers",strangers: @strangers %>

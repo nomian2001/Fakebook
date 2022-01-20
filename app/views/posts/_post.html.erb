@@ -1,64 +1,67 @@
-<div class="card post" id="post_<%= post.id %>">
-    <div class="card-header d-flex">
-        <div class="info-account d-flex">
-            <div class="d-flex justify-content-center align-items-center">
-                <%= image_tag "user.png",width:30,height:30 %>
+<div class="mt-2 pt-2 pb-5 ">
+    <div class="card post" id="post_<%= post.id %>">
+        <div class="card-header d-flex">
+            <div class="info-account d-flex">
+                <div class="d-flex justify-content-center align-items-center">
+                    <%= image_tag "user.png",width:30,height:30 %>
+                </div>
+                <div class="d-flex flex-column ms-3">
+                    <h5 class="user-name"><%= post.user.username %></h5>
+                    <p class="date-post"><%= post.created_at.to_date%></p>
+                </div>
             </div>
-            <div class="d-flex flex-column ms-3">
-                <h5 class="user-name"><%= post.user.username %></h5>
-                <p class="date-post"><%= post.created_at.to_date%></p>
+            <% if current_user.id == post.user.id %>
+            <nav class="nav-post container d-flex flex-row-reverse">
+                <div class="group-icon">
+                    <%= link_to edit_post_path(post), class: "icon-item" do %>
+                        <i class="fa fa-edit"></i>
+                    <% end %>
+                    <%= link_to post,method: :delete, data: {confirm: "Are you sure you want to delete this post?"}, class: "icon-item",remote: true do %>
+                        <i class="fa fa-trash-alt"></i>
+                    <% end %>
+                </div>
+            </nav>
+            <% end %>
+        </div>
+        <div class="card-body">
+            <p class="card-text"> <%= post.content  %></p>
+        </div>
+        <div class="d-flex ms-3">
+            <p>
+                <i class="fas fa-thumbs-up me-2 post-information"></i>
+                <%= render "likes/likes", post: post %>
+        
+            </p>
+            <p class="ms-3">
+                <i class="fas fa-comment-alt me-2 post-information"></i>
+                <%= post.comments.count %>
+            </p>
+        </div>
+        <div class="group-like-comment d-flex justify-content-around align-items-center mb-2">
+            <div class="group-actions">
+                <% check_like = post.likes.find{|like| like.user_id == current_user.id} %>
+                    <% if check_like %>
+                        <%= link_to post_like_path(post,check_like), class: "liked",id: "liked_#{post.id}",remote: true, method: :delete do%>
+                            <i class="fas fa-thumbs-up me-2 "></i>Like
+                        <%end %>
+                    <% else %>
+                        <%= link_to post_likes_path(post),remote: true,id: "not_liked_#{post.id}",remote: true, method: :post do%>
+                            <i class="far fa-thumbs-up me-2" id= "like_<%= post.id%>"></i> Like
+                        <%end %>
+                <%end %>
+
+            </div>
+            <div class="group-actions comment-btn">
+                <i class="far fa-comment-alt me-2"></i>Comment
             </div>
         </div>
-        <% if current_user.id == post.user.id %>
-        <nav class="nav-post container d-flex flex-row-reverse">
-            <div class="group-icon">
-                <%= link_to edit_post_path(post), class: "icon-item" do %>
-                    <i class="fa fa-edit" aria-hidden="true"></i>
-                <% end %>
-                <%= link_to post,method: :delete, data: {confirm: "Are you sure you want to delete this post?"} , class: "icon-item" do %>
-                    <i class="fa fa-trash-alt" aria-hidden="true"></i>
-                <% end %>
+        <% if post.comments.count != 0%>
+            <div class="mt-2" id="group_comment_<%=post.id%>">
+                <%= render post.comments, post: post %>
             </div>
-        </nav>
         <% end %>
-    </div>
-    <div class="card-body">
-        <p class="card-text"> <%= post.content  %></p>
-    </div>
-    <div class="d-flex ms-3">
-        <p>
-            <i class="fas fa-thumbs-up me-2 post-information"></i>
-            <%= post.likes.count %>
-    
-        </p>
-        <p class="ms-3">
-            <i class="fas fa-comment-alt me-2 post-information"></i>
-            <%= post.comments.count %>
-        </p>
-    </div>
-    <div class="group-like-comment d-flex justify-content-around align-items-center mb-2">
-        <div class="group-actions">
-            <% check_like = post.likes.find{|like| like.user_id == current_user.id} %>
-            <% if check_like %>
-                <%= link_to post_like_path(post,check_like), class: "liked", method: :delete do%>
-                    <i class="fas fa-thumbs-up me-2"></i>Like
-                <%end %>
-            <% else %>
-                <%= link_to post_likes_path(post), method: :post do%>
-                    <i class="far fa-thumbs-up me-2"></i>Like
-                <%end %>
-            <%end %>
+        <div>
+            <%= render "comments/form", post: post %>
         </div>
-        <div class="group-actions comment-btn">
-            <i class="far fa-comment-alt me-2"></i>Comment
-        </div>
-    </div>
-    <% if post.comments.count != 0%>
-        <div class="mt-2">
-            <%= render post.comments %>
-        </div>
-    <% end %>
-    <div>
-        <%= render "comments/form", post: post %>
     </div>
 </div>

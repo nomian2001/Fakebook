@@ -1,0 +1,3 @@
+$('#group_comment_<%= @post.id%>').prepend("<%= j render 'comments/comment', post: @post,comment: @comment %>")
+$('#comment-<%= @post.id %>').val("")
+$('body').prepend("<%= toastr_flash %>")

@@ -1,4 +1,8 @@
 <div class="feed">  
-    <%= render "posts/form" %>
-    <%= render "posts/show"%>
+    <% if user.id == current_user.id %>
+        <%= render "posts/form" %>
+    <%end%>
+    <div class="group-posts">
+        <%= render "posts/show", posts: @posts%>
+    </div>
 </div>

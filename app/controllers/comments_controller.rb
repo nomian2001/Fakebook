@@ -6,8 +6,13 @@ class CommentsController < ApplicationController
         @comment.user_id = current_user.id
         @comment.post_id = @post.id
         if @comment.save
-            flash[:notice] = "Created comment." 
-            redirect_back(fallback_location: root_path)
+            respond_to do |format|
+              format.html { redirect_back(fallback_location: root_path) }
+              format.js {flash.now[:notice] = "Added comment"}
+            end
+        else
+            flash[:alert] = "Check the comment form, something went wrong."
+            render root_path
         end
     end
   
@@ -15,12 +20,14 @@ class CommentsController < ApplicationController
         @post = Post.find(params[:post_id])
         @comment = @post.comments.find(params[:id])
         @comment.destroy
-        flash[:success] = "Deleted comment." 
-        redirect_back(fallback_location: root_path)
+        respond_to do |format|
+            format.html { redirect_back(fallback_location: root_path) }
+            format.js {flash.now[:notice] = "Deleted comment"}
+        end
     end
   
     private 
     def comment_params
-        params.require(:comment).permit(:content,:post_id,:user_id)
+        params.require(:comment).permit( :content,:post_id,:user_id)
     end
 end

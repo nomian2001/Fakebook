@@ -1,0 +1,5 @@
+$('#like_<%= @post.id %>').removeClass("fas fa-thumbs-up").addClass("far fa-thumbs-up").parent().removeClass("liked")
+$("#liked_<%= @post.id %>").removeClass("liked")
+$('#not_liked_<%= @post.id %>').attr("data-method","post").attr("href","<%= post_likes_path(@post) %>")
+$('#likes_<%= @post.id %>').html("<%= j render "likes/likes", post: @post%>")
+$('body').prepend("<%= toastr_flash %>")

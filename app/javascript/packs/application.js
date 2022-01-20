@@ -8,7 +8,6 @@ import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 require("@popperjs/core")
-require("jquery")
 import "bootstrap"
 require("../stylesheets/application.scss")
 import "@fortawesome/fontawesome-free/css/all"
@@ -28,11 +27,10 @@ $(function(){
         let id = $(this).parent().parent().attr('id')
         id = id.replace('post_','');
         $("#comments_"+id).toggle();
-        let test = $("#comments_" + id)
-        console.log(test)
+       
     })
     
-
+   
    
 })
 
@@ -40,3 +38,4 @@ $(function(){
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+require("jquery")
